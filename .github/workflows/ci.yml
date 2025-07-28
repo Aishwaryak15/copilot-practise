@@ -42,3 +42,7 @@ jobs:
         run: |
           docker tag ${{ env.DOCKER_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
+
+      - name: Verify Docker image was pushed
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
