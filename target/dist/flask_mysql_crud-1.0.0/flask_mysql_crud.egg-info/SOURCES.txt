@@ -1,0 +1,8 @@
+app.py
+setup.py
+flask_mysql_crud.egg-info/PKG-INFO
+flask_mysql_crud.egg-info/SOURCES.txt
+flask_mysql_crud.egg-info/dependency_links.txt
+flask_mysql_crud.egg-info/namespace_packages.txt
+flask_mysql_crud.egg-info/top_level.txt
+flask_mysql_crud.egg-info/zip-safe
