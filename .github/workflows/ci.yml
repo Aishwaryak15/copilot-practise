@@ -1,5 +1,4 @@
 name: Build, Test, and Dockerize Flask App
-
 on:
   push:
     branches: [ main ]
