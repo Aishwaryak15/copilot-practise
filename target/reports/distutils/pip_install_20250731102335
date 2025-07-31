@@ -1,0 +1,18 @@
+
+[notice] A new release of pip is available: 24.0 -> 25.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+opilotpractise\target\dist\flask_mysql_crud-1.0.0
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Building wheels for collected packages: flask_mysql_crud
+  Building wheel for flask_mysql_crud (setup.py): started
+  Building wheel for flask_mysql_crud (setup.py): finished with status 'done'
+  Created wheel for flask_mysql_crud: filename=flask_mysql_crud-1.0.0-py3-none-any.whl size=2661 sha256=c7d988fd5ccc787057f40464f0d6371d866375402efa54964c993888b4761641
+  Stored in directory: c:\users\aishwaryaka\appdata\local\pip\cache\wheels\32\a8\a7\669959e3f67793c7d0cae64cd701fc16da1741bb7b91f4d6fc
+Successfully built flask_mysql_crud
+Installing collected packages: flask_mysql_crud
+  Attempting uninstall: flask_mysql_crud
+    Found existing installation: flask_mysql_crud 1.0.0
+    Uninstalling flask_mysql_crud-1.0.0:
+      Successfully uninstalled flask_mysql_crud-1.0.0
+Successfully installed flask_mysql_crud-1.0.0

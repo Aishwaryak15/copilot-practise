@@ -1,4 +1,5 @@
 name: Build, Test, and Dockerize Flask App
+
 on:
   push:
     branches: [ main ]
@@ -6,43 +7,43 @@ on:
     branches: [ main ]
 
 jobs:
-  build-test-package-dockerize:
+  build-test:
     runs-on: ubuntu-latest
-    env:
-      DOCKER_IMAGE: flask_mysql_crud
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.12'
-
-      - name: Install pip dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pybuilder wheel
-
-      - name: Build and test with PyBuilder
+          pip install -r requirements.txt
+          pip install pybuilder
+      - name: Run PyBuilder build
         run: |
-          pyb
-
+          pyb clean install
+      - name: Run tests and coverage
+        run: |
+          python -m coverage run --source=src/main/python -m unittest discover src/unittest/python
+          python -m coverage report
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.DOCKER_IMAGE }} .
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v3
+          docker build -t ${{ github.repository }}:latest .
+      - name: Log in to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Tag Docker image for ECR
+        run: |
+          docker tag ${{ github.repository }}:latest ${{ steps.login-ecr.outputs.registry }}/${{ github.repository }}:latest
+      - name: Push Docker image to ECR
+        run: |
+          docker push ${{ steps.login-ecr.outputs.registry }}/${{ github.repository }}:latest
+      - name: Deploy to Amazon ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: Push Docker image to Docker Hub
-        run: |
-          docker tag ${{ env.DOCKER_IMAGE }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
-
-      - name: Verify Docker image was pushed
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
+          task-definition: ecs-task-def.json
+          service: flask-mysql-crud-service
+          cluster: flask-mysql-crud-cluster
+          wait-for-service-stability: true

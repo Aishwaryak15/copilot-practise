@@ -1,0 +1,35 @@
+WARNING: '.' not a valid package name; please use only .-separated package names in setup.py
+running clean
+'build\lib' does not exist -- can't clean it
+'build\bdist.win-amd64' does not exist -- can't clean it
+'build\scripts-3.12' does not exist -- can't clean it
+running sdist
+running egg_info
+creating flask_mysql_crud.egg-info
+writing flask_mysql_crud.egg-info\PKG-INFO
+writing dependency_links to flask_mysql_crud.egg-info\dependency_links.txt
+writing namespace_packages to flask_mysql_crud.egg-info\namespace_packages.txt
+writing top-level names to flask_mysql_crud.egg-info\top_level.txt
+writing manifest file 'flask_mysql_crud.egg-info\SOURCES.txt'
+reading manifest file 'flask_mysql_crud.egg-info\SOURCES.txt'
+writing manifest file 'flask_mysql_crud.egg-info\SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+creating flask_mysql_crud-1.0.0
+creating flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying files to flask_mysql_crud-1.0.0...
+copying __init__.py -> flask_mysql_crud-1.0.0
+copying app.py -> flask_mysql_crud-1.0.0
+copying setup.py -> flask_mysql_crud-1.0.0
+copying flask_mysql_crud.egg-info\PKG-INFO -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\SOURCES.txt -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\dependency_links.txt -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\namespace_packages.txt -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\top_level.txt -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\zip-safe -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+copying flask_mysql_crud.egg-info\SOURCES.txt -> flask_mysql_crud-1.0.0\flask_mysql_crud.egg-info
+Writing flask_mysql_crud-1.0.0\setup.cfg
+creating dist
+Creating tar archive
+removing 'flask_mysql_crud-1.0.0' (and everything under it)

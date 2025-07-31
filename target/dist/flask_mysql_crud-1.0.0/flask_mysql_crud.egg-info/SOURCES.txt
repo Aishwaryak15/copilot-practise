@@ -1,3 +1,4 @@
+__init__.py
 app.py
 setup.py
 flask_mysql_crud.egg-info/PKG-INFO
